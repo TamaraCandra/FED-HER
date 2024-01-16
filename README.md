@@ -1,3 +1,5 @@
+
+
 # Procesverslag
 Markdown is een simpele manier om HTML te schrijven.  
 Markdown cheat cheet: [Hulp bij het schrijven van Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
@@ -36,7 +38,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken voor kick-off werkgroep</summary>
 
   ### Je opdracht:
-  https://shopatelje.com
+  ? ? ?
 
   #### Screenshot(s) van de eerste pagina (small screen): 
   Homepage
@@ -57,6 +59,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   ### Bevindingen
   Lijst met je bevindingen die in de test naar voren kwamen:
+  De foto's hebben geen alt-tekst, er zijn meerdere links waarvan de alt-tekst niet meer klopt met wat er nu in de link staat. Verder ga je best chill door het menu heen en geeft hij elk kopje aan en zegt vervolgens hoeveel dingen er in de lijst staan en noemt die per stuk op.
 
 </details>
 

@@ -1,21 +1,165 @@
 <!DOCTYPE html>
-<html lang="nl">
-	
+<html lang="en">
+
+
 <head>
 	<meta charset="UTF-8">
-	<meta name="author" content="jouw naam">
+	<meta name="author" content="TamaraSchukking">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<title>TAMS2 Shop Ateljé</title>
-	
+
+	<title>LOVEStories</title>
+
 	<link href="styles/style.css" rel="stylesheet">
 	<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 </head>
 
+
 <body>
-	<h1>Howdy FED2324</h1>
+	<header>
+		<nav>
+			<ul>
+				<li><button><img class="hamburgermenu" src="img/burger-menu.png" alt="Menu"></button></li>
+				<li><a href="./"><img class="searchbar" src="img/vergroot.png" alt="Zoeken"></a></li>
+				<li class="lslogo"><a href="./"><img src="img/logo.svg" alt="Naar de homepage"></a></li>
+				<li><a><img class="profiel" src="img/profiel.png" alt="Profiel"></a></li>
+				<li><a><img class="cart" src="img/shoppingbasket.png" alt="Winkelwagen"></a></li>
+			</ul>
+		</nav>
+	</header>
+
+
+	<main>
+		<section>
+			<h1>The (After) Party Collection</h1>
+			<img class="hoofdfoto" src="img/hoofdFoto.jpg" alt="Hoofdfoto">
+			<a href="./">Shop now</a>
+		</section>
+		<section>
+			<h2>Discover our collection</h2>
+			<ul>
+				<li>
+					<a href="./">
+						<img class="foto1" src="img/discover1Gwen.jpg" alt="">
+						<h3>GWEN</h3>
+						<!--- hoofdletters toevoegen in css --->
+						<p>€75</p>
+					</a>
+				</li>
+
+				<li>
+					<a href="./">
+						<img class="foto2" src="img/discover2Roomie.jpg" alt="">
+						<h3>ROOMIE</h3>
+						<!--- hoofdletters toevoegen in css --->
+						<p>€40</p>
+					</a>
+				</li>
+				<li>
+					<a href="./">
+						<img class="foto3" src="img/discover1Gwen.jpg" alt="">
+						<h3>Chrissy</h3>
+						<!--- hoofdletters toevoegen in css --->
+						<p>€50</p>
+					</a>
+				</li>
+			</ul>
+			<!---navigatie hieronder (ook een ul) --->
+			<a href="./">shop here</a>
+
+		</section>
+		<section>
+			<article>
+				<h2>Now Open: The Holiday Gift Shop</h2>
+				<p>The best thing you can find under the tree is a dose of love. Get a head start on the holidays with
+					our 2023 Gift Guide and discover perfect presents for everone on your list. Shop silky lingerie
+					sets, statement pyjamas and tiny trinkets to surprise them all. Unwrap the joy and make this your
+					best festive season yet.</p>
+				<img class="giftfoto" src="img/giftFoto.jpg" alt="afbeelding met cadeaustrik">
+				<a href="./">get inspired</a>
+				<!--- hoofdletters toevoegen in css --->
+			</article>
+		</section>
+		<section>
+			<article>
+				<h2>Sleepwalker style</h2>
+				<p>From your bedroom to the bar, the "sleepwalker" look is sophisticated yet shamelessly comfortable.
+					Discover pink, white or blue PJs with romantic ruffles, or silky red sets with rhinestones or
+					feathers.</p>
+				<img class="pyjamafoto" src="img/pyjamaFoto.jpg" alt="pyjama foto">
+				<div><a href="./">shop here</a></div>
+				<!--- hoofdletters toevoegen in css --->
+			</article>
+		</section>
+		<section>
+			<h2>Worn by you</h2>
+			<p>Get inspired by our social feed and how real woman style their Love Stories looks. Click the image to
+				shop, and tag your own photos @lovestoriesintimates for the chance to be featured!</p>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</section>
+		<p>_________________________________________________________</p>
+	</main>
+
+
+	<footer>
+		<details>
+			<summary>Contact us</summary>
+			<!--- hoofdletters toevoegen in css --->
+			<address>
+				<ul>
+					<li>Contact us via live chat</li>
+					<li>Whatsapp us</li>
+					<li>Other contact options</li>
+					<li>Find your answers</li>
+					<li>Delivery & Returns</li>
+					<li>Size guide</li>
+				</ul>
+			</address>
+		</details>
+		<details>
+			<summary>About us</summary>
+			<!--- hoofdletters toevoegen in css --->
+			<address>
+				<li>Our story</li>
+				<li>Boutiques</li>
+				<li>Responsibility</li>
+				<li>Careers</li>
+				<li>Terms & Conditions</li>
+				<li>Privacy Policy</li>
+			</address>
+		</details>
+		<details>
+			<summary>Follow</summary>
+			<!--- hoofdletters toevoegen in css --->
+			<address>
+				<li>Instagram</li>
+				<li>Pinterest</li>
+				<li>Facebook</li>
+			</address>
+		</details>
+		<section>
+			<article>
+				<h2>Receive Our Love Letters</h2>
+				<p>Subscribe to our newsletter and be the first to know about new collections, exclusive collaborations
+					and promotions!</p>
+				<form>
+					<!-- bron: https://www.w3schools.com/tags/att_input_type_email.asp -->
+					<label class="sr-only" for="email">Email adress</label>
+					<input type="email" id="email" placeholder="Email Adress">
+					<!-- <input type="submit"> -->
+					<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 16.2 11.7"
+						class="nuxt-icon nuxt-icon--fill icon icon-arrow-right">
+						<path d="m10.4 0-.8.7 4.7 4.7H0v1h14.3L9.6 11l.8.7 5.8-5.8z"></path>
+					</svg>
+				</form>
+			</article>
+		</section>
+	</footer>
 
 	<script defer src="scripts/script.js"></script>
 </body>
-	
+
 </html>
