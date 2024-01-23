@@ -1,39 +1,62 @@
-/**************/
+/*********************/
 /* CSS REMEDY */
-/**************/
-*, *::after, *::before {
-  box-sizing: border-box;  
+/*********************/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
 }
 
 .sr-only:not(:focus):not(:active) {
-	clip: rect(0 0 0 0); 
+	clip: rect(0 0 0 0);
 	clip-path: inset(50%);
-	height: 1px;
+	height: 0.06em;
 	overflow: hidden;
 	position: absolute;
-	white-space: nowrap; 
-	width: 1px;
-  }
+	white-space: nowrap;
+	width: 0.06em;
+}
 
-  @font-face {
-	font-family: 'Aktiv Grotesk' ;
+/* @font-face {
+	font-family: 'Aktiv Grotesk';
 	src:
 		local("Aktiv Grotesk"),
 		url("AktivGrotesk-Regular.ttf") format("truetype");
-  }
+} */
 
 /*********************/
 /* CUSTOM PROPERTIES */
 /*********************/
+
+/* dark mode */
 :root {
-	/* startje */
-	--color-text: #000000;
-	--color-background: #ffffff;
+	--color-background: #fff;
+	--color-h1text: #CD2528;
+	--color-maintext: black;
+	--color-buttontext: #fff;
+	--color-buttonbackground: #000;
+	--color-extra: grey;
+	--default-page-padding: 2rem;
 }
 
-/****************/
+/* light mode */
+@media (prefers-color-scheme:light) {
+	:root {
+		--color-background: #929292;
+		--color-h1text: #772da5;
+		--color-maintext: white;
+		--color-buttontext: #000;
+		--color-buttonbackground: #fff;
+		--color-extra: grey;
+		--default-page-padding: 2rem;
+	}
+}
+
+/*********************/
 /* JOUW STYLING */
-/****************/
+/*********************/
 html {
 	font-size: 62.5%;
 }
@@ -43,167 +66,602 @@ body {
 	padding: 0;
 	border: none;
 	font-size: 1.8rem;
-	font-family: 'Aktiv Grotesk', Helvetica, sans-serif;
+	font-family: 'Montserrat', Helvetica, sans-serif;
 	/* Aktiv Grotesk */
+	background-color: var(--color-background);
 }
 
 img {
 	max-width: 100%;
 }
 
-header {
-	width: 100%;
+/*  ZODAT DE TEKST PADDING HEEFT EN IMGS NIET   */
+p,
+h2,
+details,
+form {
+	padding-left: var(--default-page-padding);
+	padding-right: var(--default-page-padding);
 }
 
-header nav ul {
+/*  ZODAT DE ARTIKELEN AFSTAND HEBBEN TOT ELKAAR  */
+section {
+	padding-bottom: 3.75em;
+}
+
+/*  SCHEIDINGSLIJN   */
+
+.midden-lijn {
+	width: 85%;
+	border-top: 1px solid var(--color-maintext);
+}
+
+/*********************/
+/*  HEADER */
+/*********************/
+
+header {
+	max-width: 100%;
+}
+
+header nav {
+	padding-left: 1.8em;
+	padding-right: 1.8em;
+}
+
+/*  ALL LI'S IN HEADER  */
+header nav ul:first-of-type {
 	list-style-type: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0em;
+}
+
+/* MAIN MENU */
+header nav ul:nth-of-type(2) {
+	background-color: var(--color-background);
+	margin: 3.5em 0em 0em 0em;
+	padding: 4em 1em 0;
+	list-style: none;
+	flex-wrap: wrap;
+	gap: 1em;
+	align-content: start;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	transform: translateX(-100%);
+	transition: .3s;
+	z-index: 2;
+}
+
+header nav ul:nth-of-type(2) li {
+	padding-top: 1em;
+}
+
+header nav ul.toonMenu {
+	transform: translateX(0%);
+}
+
+/*  HAMBURGERMENU  */
+header nav ul button {
+	border: none;
+	background: transparent;
+}
+
+/*  IMGS IN HEADER  */
+header nav ul li img {
+	height: 2.4rem;
+}
+
+/*********************/
+/*  HERO */
+/*********************/
+
+/*  VOOR DE ABSOLUTES  */
+main section:nth-of-type(1) {
+	position: relative;
+}
+
+/*  H1 TEXT  */
+.homePagina section:nth-of-type(1) h1 {
+	position: absolute;
+	bottom: 20%;
+	width: 12em;
+	left: calc(50% - 6em);
+	text-align: center;
+	color: var(--color-h1text);
+	font-size: 2.5em;
+	text-transform: uppercase;
+}
+
+/*  BLACK BUTTON   */
+main section:nth-of-type(1) a {
+	background-color: var(--color-buttonbackground);
+	color: var(--color-buttontext);
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 0.8em;
+	font-size: 0.9em;
+}
+
+/*  BLACK BUTTON - ZODAT HIJ OP DE FOTO STAAT   */
+.homePagina main section:nth-of-type(1) p {
+	text-align: center;
+	position: absolute;
+	bottom: 10%;
+	width: 12em;
+	left: calc(50% - 6em);
+}
+
+/*  EASTER EGG  */
+main section:nth-of-type(1) button {
+	position: absolute;
+	top: 45%;
+	left: 29%;
+	width: 40px;
+	height: 40px;
+	opacity: 0;
+}
+
+/*********************/
+/*  DISCOVER OUR COLLECTION  */
+/*********************/
+
+/*  LINKS IN CARROUSEL  */
+main section:nth-of-type(2) a {
+	text-transform: uppercase;
+	text-decoration: none;
+	color: var(--color-maintext);
+}
+
+/*  PRIJS TEXT  */
+main section:nth-of-type(2) ul p {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/*  BLACK BUTTON  */
+main section:nth-of-type(2)>p a {
+	background-color: var(--color-buttonbackground);
+	color: var(--color-buttontext);
+	padding: 0.8em;
+	font-size: 0.9em;
+}
+
+/*  BLACK BUTTON - IN T MIDDEN  */
+main section:nth-of-type(2)>p {
+	text-align: center;
+}
+
+/*  VOLLEDIGE SECTIE VAN PRODUCTEN  */
+section:nth-of-type(2) ul {
+	display: flex;
+	list-style-type: none;
+	padding: 0.3em;
+	overflow-x: scroll;
+	gap: 0.3em;
+}
+
+/*  VOLLEDIGE LOSSE SECTIES VAN PRODUCTEN  */
+section:nth-of-type(2) li {
+	padding: 0.3em;
+}
+
+/*  FOTO'S IN CARROUSEL  */
+section:nth-of-type(2) li img {
+	max-width: inherit;
+	width: 45vw;
+}
+
+/*********************/
+/*  NOW OPEN: THE HOLIDAY GIFT SHOP  */
+/*********************/
+
+/*  BLACK BUTTON  */
+main section:nth-of-type(3) article p a {
+	background-color: var(--color-buttonbackground);
+	color: var(--color-buttontext);
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 0.8em;
+	font-size: 0.9em;
+}
+
+/*  NOW OPEN - BLACK BUTTON - IN T MIDDEN  */
+main section:nth-of-type(3) article>p:last-of-type {
+	text-align: center;
+}
+
+/*********************/
+/*  SLEEPWALKER STYLE  */
+/*********************/
+
+/*  BLACK BUTTON  */
+main section:nth-of-type(4) p a {
+	background-color: var(--color-buttonbackground);
+	color: var(--color-buttontext);
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 0.8em;
+	font-size: 0.9em;
+	text-align: center;
+}
+
+/*  BLACK BUTTON - IN T MIDDEN  */
+main section:nth-of-type(4) article>p:last-of-type {
+	text-align: center;
+}
+
+/*********************/
+/*  WORN BY YOU  */
+/*********************/
+
+/*  VOLLEDIGE SECTIE VAN PRODUCTEN  */
+section:nth-of-type(5) ul {
+	display: flex;
+	list-style-type: none;
+	padding: 0.3em;
+	overflow-x: scroll;
+	gap: 0.3em;
+}
+
+/*  VOLLEDIGE LOSSE SECTIES VAN PRODUCTEN  */
+section:nth-of-type(5) li {
+	padding: 0.3em;
+}
+
+/*  FOTO'S IN CARROUSEL  */
+section:nth-of-type(5) li img {
+	max-width: inherit;
+	width: 45vw;
+	border-radius: 0.3em;
+}
+
+/*********************/
+/*  FOOTER  */
+/*********************/
+
+footer {
+	padding: 1.9em 0 2.5em;
+}
+
+/*  DETAILS DROPDOWNS  */
+footer summary {
+	text-transform: uppercase;
+	list-style: none;
 	display: flex;
 	justify-content: space-between;
 }
 
-header nav ul li img {
-height: 2.4rem;
+/*  LIJST ONDER DE DROPDOWNS  */
+footer address ul li {
+	list-style-type: none;
 }
 
-input {
-	width: 100%;
-	border: none;
-	border-bottom: 1px solid black;
-	background-color: transparent;
-	padding: 10px;
+/*  LINKS IN DE DROPDOWN  */
+footer address ul a {
+	text-decoration: none;
+	color: var(--color-maintext);
+	line-height: 1.7em;
+	font-style: normal;
 }
 
-label {
-	position: absolute;
-	left: 10px;
+/*  PIJLTJES VAN DROPDOWNS  */
+footer summary::after {
+	content: "\2303";
+	margin-right: 2em;
+	font-size: 1.3em;
 }
 
-form svg {
-	position: absolute;
-	right: 10px;
+/*  'RECEIVE OUR LOVE LETTERS'  */
+footer h2 {
+	padding-top: 1.2em;
 }
 
-
+/*  RECEIVE OUR LOVE LETTERS  */
 form {
 	position: relative;
 	display: flex;
-	gap: 10px;
-	padding: 20px 10px;
-}
-p {
-	padding-left: 5%;
-	padding-right: 5%;
+	gap: 0.6em;
+	padding: 1.25em 1.25em 0 1.25em;
 }
 
-h2 {
-	padding-left: 5%;
-	padding-right: 5%;
+/*  FORM ARROW  */
+form svg {
+	position: absolute;
+	right: 1.6em;
 }
 
-details {
-	padding-left: 5%;
-	padding-right: 5%;
+/*  ONTZICHTBAAR LABEL  */
+label {
+	position: absolute;
+	left: 0.6em;
 }
 
-form {
-	padding-left: 5%;
-	padding-right: 10%;
-}
-
-section:nth-of-type(2) ul{
-display: flex;
-list-style-type: none;
-padding: 5px;
-}
-
-section:nth-of-type(2) li{
-padding: 5px;
-	}
-
-section {
-padding-bottom: 60px;
-}
-
-main section:nth-of-type(1){
-position: relative;
-}
-
-/*  HERO  -  H1 TEXT   */
-main section:nth-of-type(1) h1{
-position: absolute;
-bottom: 50%;
-width: 12em;
-left: calc(50% - 6em);
-text-align: center;
-color: #CD2528;
-font-size: 3em;
-text-transform: uppercase;
-	}
-
-/*  HERO  -  BLACK BUTTON   */
-main section:nth-of-type(1) a {
-background-color: black;
-color: white;
-text-transform: uppercase;
-text-decoration: none;
-padding: 0.6em;
-font-size: 0.7em;
-}
-
-main section:nth-of-type(2) a {
-background-color: black;
-color: white;
-text-transform: uppercase;
-text-decoration: none;
-padding: 0.6em;
-font-size: 0.7em;
-}
-
-main section:nth-of-type(2) ul a {
-	background-color: white;
-	color: black;
-	text-transform: uppercase;
-	text-decoration: none;
+/*  INHOUD VAN MAIL FORM  */
+input {
+	width: 100%;
+	border: none;
+	border-bottom: 0.05em solid var(--color-maintext);
+	background-color: transparent;
 	padding: 0.6em;
-	font-size: 0.7em;
-	}
-
-
-/*  NOW OPEN  -  GIFT RIBBONS, BLACK BUTTON   */
-main section:nth-of-type(3) article a {
-background-color: black;
-color: white;
-text-transform: uppercase;
-text-decoration: none;
-padding: 0.6em;
-font-size: 0.7em;
+	font-size: 1em;
+	font-family: 'Montserrat', Helvetica, sans-serif;
 }
 
-/*  SLEEPWALKER STYLE - RED PYJAMAS, BLACK BUTTON   */
-main section:nth-of-type(4) a {
-background-color: black;
-color: white;
-text-transform: uppercase;
-text-decoration: none;
-padding: 0.6em;
-font-size: 0.7em;
-
+/*  TERMS & CONDITIONS */
+section:last-of-type p:nth-of-type(2) {
+	color: var(--color-extra);
+	font-size: 0.8em;
+	padding-top: 0;
 }
-main section:nth-of-type(4) div {
-	background-color: black;
-	color: white;
+
+/**************************************************************************/
+/*  PAGINA 2 - PRODUCTPAGINA  */
+/**************************************************************************/
+
+/*  ALLE LIJSTEN, GEEN BULLET  */
+.productPagina ul {
+	list-style-type: none;
+}
+
+/*  PRODUCTNAMEN  */
+.productPagina h3 {
 	text-transform: uppercase;
+}
+
+/*********************/
+/*  HEADER  */
+/*********************/
+/*  HAMBURGERMENU  */
+.productPagina button:last-of-type {}
+
+/*  BREADCRUMB  */
+.productPagina nav a {
+	color: var(--color-maintext);
 	text-decoration: none;
-	padding: 0.6em;
-	font-size: 0.7em;
-	text-align: center;
-	margin: 5% 40%;
-	}
-		
+}
 
+/*  BREADCRUMB ARROW  */
+.productPagina>nav a::before {
+	content: "\02C2";
+	margin-right: 0.7em;
+	font-size: 1.3em;
+}
 
+/*********************/
+/*  ARTIKEL INFO  */
+/*********************/
 
+/*  COLOR BLACK, DESCRIPTION + DASHED LIST  */
+.productPagina section:first-of-type {
+	padding-bottom: 1em;
+}
 
-footer {
-	padding: 30px 0 70px;
+/*  'COLOUR: BLACK'  */
+.productPagina section:nth-of-type(1) p:nth-of-type(1) {
+	margin-bottom: 0;
+}
+
+/*  'DESCRIPTION'  */
+.productPagina section:nth-of-type(1) p:nth-of-type(2) {
+	text-decoration: underline;
+	font-size: 1em;
+	padding-bottom: 0.5em;
+}
+
+/*  DESCRIPTION LIST  */
+.productPagina section:nth-of-type(1) ul {
+	list-style-type: none;
+	line-height: 1.7em;
+}
+
+/*  DASHED LIST  */
+.productPagina section:nth-of-type(1) ul li:before {
+	content: '\2013';
+	position: absolute;
+	margin-left: -20px;
+}
+
+/*********************/
+/*  FANNY, UITLEG + PRIJS  */
+/*********************/
+
+/*  H2 - FANNY  */
+.productPagina section:nth-of-type(2) div h2 {
+	text-transform: uppercase;
+	font-size: 0.9em;
+}
+
+/*  H1 - FLUFFY FEATHER BRALETTE  */
+.productPagina section:nth-of-type(2)>h1 {
+	padding-left: var(--default-page-padding);
+	padding-right: var(--default-page-padding);
+	font-weight: 200;
+	font-size: 0.9em;
+	margin-top: 0;
+}
+
+/*  FANNY + €150  */
+.productPagina section:nth-of-type(2) div {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/*  FANNY  */
+.productPagina section:nth-of-type(2) div h2 {
+	font-weight: 500;
+	margin-bottom: 0;
+	margin-top: 0.3em;
+}
+
+/*  PADDING ONDER FANNY + PRIJS  */
+.productPagina section:nth-of-type(2) {
+	padding-bottom: 0.5em;
+}
+
+/*********************/
+/*  SELECT SIZE BOX + ADD TO BAG BUTTON  */
+/*********************/
+
+/*  'SELECT SIZE' BOX  */
+.productPagina main>details {
+	margin-top: 0;
+	border: 0.1em solid var(--color-maintext);
+	margin: 0 2em 0.5em 2em;
+}
+
+/* 'ADD TO BAG' BOX  */
+.productPagina main>button {
+	background-color: var(--color-buttonbackground);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	font-family: 'Montserrat', Helvetica, sans-serif;
+	text-transform: uppercase;
+	font-weight: 600;
+	width: 85%;
+	color: var(--color-buttontext);
+	font-size: 1em;
+	border: 0.1em solid var(--color-maintext);
+}
+
+/*********************/
+/*  COMPLETE YOUR LOOK  */
+/*********************/
+
+/*  COMPLETE YOUR LOOK  */
+.productPagina section:nth-of-type(3) {
+	padding-bottom: 0.2em;
+}
+
+/*  'COMPLETE YOUR LOOK'  */
+.productPagina section:nth-of-type(3) h2 {
+	text-transform: uppercase;
+	font-size: 1em;
+	padding-left: var(--default-page-padding);
+}
+
+/*  COMPLETE YOUR LOOK UL  */
+.productPagina main section:nth-of-type(3) ul {
+	display: flex;
+	padding-top: 0;
+	padding-right: 3em;
+	padding-bottom: 0;
+	padding-left: var(--default-page-padding);
+}
+
+/*  COMPLETE YOUR LOOK - PADDING IN BETWEEN  */
+.productPagina main section:nth-of-type(3) li:first-of-type {
+	padding-right: 1em;
+}
+
+/*  COMPLETE YOUR LOOK - H3's  */
+.productPagina main section:nth-of-type(3) li h3 {
+	margin-bottom: 0;
+	padding-bottom: 0.5em;
+	color: var(--color-maintext);
+	text-decoration: none;
+}
+
+/*  COMPLETE YOUR LOOK - P'S  */
+.productPagina main section:nth-of-type(3) li p {
+	padding-left: 0;
+	margin-top: 0;
+	color: var(--color-maintext);
+}
+
+/*********************/
+/*  LATEST FAVOURITES  */
+/*********************/
+
+/*  LATEST FAVORITES  */
+.productPagina section:nth-of-type(4) {
+	padding-bottom: 0.1em;
+}
+
+/*  'LATEST FAVORITES'  */
+.productPagina section:nth-of-type(4) h2 {
+	text-transform: uppercase;
+	font-size: 1em;
+}
+
+/*  LATEST FAVORITES UL  */
+.productPagina main section:nth-of-type(4) ul {
+	display: flex;
+	padding-top: 0;
+	padding-right: 3em;
+	padding-bottom: 0;
+	padding-left: var(--default-page-padding);
+}
+
+/*  LATEST FAVOURITES IMG  */
+.productPagina main section:nth-of-type(4) img {
+	width: 45vw;
+}
+
+/*  COMPLETE YOUR LOOK - PADDING IN BETWEEN  */
+.productPagina main section:nth-of-type(4) li:first-of-type {
+	padding-right: 1em;
+}
+
+/*  LATEST FAVOURITES - H3  */
+.productPagina main section:nth-of-type(4) li h3 {
+	margin-bottom: 0;
+	padding-bottom: 0.5em;
+	color: var(--color-maintext);
+}
+
+/*  LATEST FAVORITES - P'S  */
+.productPagina main section:nth-of-type(4) li p {
+	padding-left: 0;
+	margin-top: 0;
+	color: var(--color-maintext);
+}
+
+/*********************/
+/*  FOOTER  */
+/*********************/
+
+/*  PIJLTJES VAN DROPDOWNS  */
+.productPagina main>details summary::after {
+	content: "\2303";
+	font-size: 1.3em;
+}
+
+/*  DETAILS DROPDOWNS  */
+.productPagina main>details summary {
+	text-transform: uppercase;
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	padding-top: 1em;
+	padding-bottom: 0.7em;
+	font-weight: 700;
+}
+
+.productPagina main>details address ul li:hover {
+	font-weight: 500;
+}
+
+/*  LINKS IN DE DROPDOWN  */
+.productPagina main>details address ul a {
+	text-decoration: none;
+	color: var(--color-maintext);
+	line-height: 1.7em;
+	font-style: normal;
+}
+
+.productPagina section:last-of-type p:nth-of-type(2) {
+	color: var(--color-extra);
+	font-size: 0.8em;
+	padding-top: 0;
+	text-decoration: none;
 }
